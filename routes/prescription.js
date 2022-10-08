@@ -50,7 +50,7 @@ route.get('/getSuggestion',
             console.log(drA,drB,drC)
             if(drA || drB || drC)
             {
-                res.status(200).json({ "Doctor A": (drA?.suggestion!==undefined?drA.suggestion:null),"Doctor B":(drB?.suggestion!==undefined?drB.suggestion:null),"Doctor C":(drC?.suggestion!==undefined?drC.suggestion:null) });
+                res.status(200).json({ "Doctor A": (drA!==null?drA.suggestion:null),"Doctor B":(drB!==null?drB.suggestion:null),"Doctor C":(drC!==null?drC.suggestion:null) });
             }
             else
             {
