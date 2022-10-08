@@ -1,6 +1,6 @@
 const express = require('express');
 const route = express.Router();
-// const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 const Doctor = require('../models/doctors');
 
 route.post('/signup',
@@ -14,9 +14,9 @@ route.post('/signup',
             }
     
             //create salt and hash for secure password
-            // const salt = await bcrypt.genSalt(10);
-            // const secPass = await bcrypt.hash(req.body.password, salt);
-            const secPass = req.body.password
+            const salt = await bcrypt.genSalt(10);
+            const secPass = await bcrypt.hash(req.body.password, salt);
+            
             //create a new Doctor
             doctor = await Doctor.create({
                 firstName: req.body.firstName,
